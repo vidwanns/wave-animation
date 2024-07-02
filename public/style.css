@@ -138,13 +138,16 @@ header a{
 
 .footer {
     background-color: #3c3c3c;
-    height: 100px;
-    padding-top: 40px;
+    height: 0px;
+    padding-top: 20px;
+    padding-bottom: 74px;
+    margin: 0;
   }
   
   .footer p {
     color: white;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
+    padding-top: 20px;
   }
