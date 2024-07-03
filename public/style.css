@@ -1,29 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-body{
+
+body {
     margin: 0;
     background-color: #141414;
     color: #eee;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
 }
-a{
+
+a {
+    font-weight: bold;
     text-decoration: none;
+    position: relative;
+    opacity: 0.50;
+    color: #eee;
+    margin-right: 0px;
+    margin-left: 60px;
 }
-header{
-    width: auto;
+
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjusts the gap between text and underline */
+    width: 0;
+    height: 2px;
+    background: #eee;
+    transition: width 0.3s ease-in-out;
+    border-radius: 3px;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+header {
+    width: 100%;
     margin: auto;
     height: 90px;
     display: flex;
     align-items: center;
     position: relative;
-    padding-left: 1050px;
+    padding-left: 60%;
+    padding-top: 0px;
     background-color: #3c3c3c;
-
 }
-header a{
-    color: #eee;
-    margin-right: 0px;
-    margin-left: 60px;
+
+header .logo {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    height: 50px;
+}
+
+header nav {
+    margin-left: 10px;
+    padding-top: 5px;
+}
+
+header a:hover {
+    opacity: 1;
 }
 
 * {
@@ -32,25 +68,26 @@ header a{
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --index: calc(1vw + 1vh);
     --transition: cubic-bezier(.1, .7, 0, 1);
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 80vh;
 }
 
-.items{
+.items {
     display: flex;
     gap: 0.4rem;
     perspective: calc(var(--index) * 35);
 }
 
-.item{
+.item {
+    border-radius: 5px;
     width: calc(var(--index) * 3);
     height: calc(var(--index) * 12);
     background-color: #222;
@@ -62,7 +99,7 @@ header a{
     will-change: transform, filter, rotateY, width;
 }
 
-.item::before, .item::after{
+.item::before, .item::after {
     content: '';
     position: absolute;
     height: 100%;
@@ -70,69 +107,68 @@ header a{
     right: calc(var(--index) * -1);
 }
 
-.item::after{
+.item::after {
     left: calc(var(--index) * -1);
 }
 
-.items .item:hover{
+.items .item:hover {
     filter: inherit;
     transform: translateZ(calc(var(--index) * 10));
 }
 
-/*Right*/
+/* Right */
 
-.items .item:hover + *{
+.items .item:hover + * {
     filter: inherit;
     transform: translateZ(calc(var(--index) * 8.5)) rotateY(35deg);
     z-index: -1;
 }
 
-.items .item:hover + * + *{
+.items .item:hover + * + * {
     filter: inherit;
     transform: translateZ(calc(var(--index) * 5.6)) rotateY(40deg);
     z-index: -2;
 }
 
-.items .item:hover + * + * + *{
+.items .item:hover + * + * + * {
     filter: inherit;
     transform: translateZ(calc(var(--index) * 2.5)) rotateY(30deg);
     z-index: -3;
 }
 
-.items .item:hover + * + * + * + *{
+.items .item:hover + * + * + * + * {
     filter: inherit;
     transform: translateZ(calc(var(--index) * .6)) rotateY(15deg);
     z-index: -4;
 }
 
+/* Left */
 
-/*Left*/
-
-.items .item:has( + :hover){
+.items .item:has(+ :hover) {
     filter: inherit;
     transform: translateZ(calc(var(--index) * 8.5)) rotateY(-35deg);
 }
 
-.items .item:has( + * + :hover){
+.items .item:has(+ * + :hover) {
     filter: inherit;
     transform: translateZ(calc(var(--index) * 5.6)) rotateY(-40deg);
 }
 
-.items .item:has( + * + * + :hover){
+.items .item:has(+ * + * + :hover) {
     filter: inherit;
     transform: translateZ(calc(var(--index) * 2.5)) rotateY(-30deg);
 }
 
-.items .item:has( + * + * + * + :hover){
+.items .item:has(+ * + * + * + :hover) {
     filter: inherit;
     transform: translateZ(calc(var(--index) * .6)) rotateY(-15deg);
 }
 
 .items .item:active, .items .item:focus {
-	width: 28vw;
-	filter: inherit;
-	z-index: 100;
-	transform: translateZ(calc(var(--index) * 10));
+    width: 28vw;
+    filter: inherit;
+    z-index: 100;
+    transform: translateZ(calc(var(--index) * 10));
     margin: 0 .45vw;
 }
 
@@ -140,14 +176,14 @@ header a{
     background-color: #3c3c3c;
     height: 0px;
     padding-top: 20px;
-    padding-bottom: 74px;
+    padding-bottom: 5%;
     margin: 0;
-  }
-  
-  .footer p {
+}
+
+.footer p {
     color: white;
     font-weight: bold;
     font-size: 12px;
     text-align: center;
     padding-top: 20px;
-  }
+}
