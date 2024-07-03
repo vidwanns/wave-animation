@@ -45,20 +45,53 @@ header {
     height: 90px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
     background-color: #3c3c3c;
+    padding: 0 20px; /* Adjust padding for responsiveness */
 }
 
 header .logo {
-    position: absolute;
-    left: 50px;
-    top: 20px;
     height: 50px;
 }
 
-header nav {
-    margin-left: auto;
-    padding-top: 5px;
+header nav.desktop-menu {
+    display: flex;
+    align-items: center;
+}
+
+header nav.mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 20px;
+    background-color: #3c3c3c;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+header nav.mobile-menu a {
+    margin: 10px 0;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    background: #eee;
+    border-radius: 2px;
+    display: block;
+    height: 2px;
+    margin: 2px;
+    width: 23px;
+}
+
+.mobile-menu.active {
+    display: flex;
 }
 
 header a:hover {
@@ -81,6 +114,8 @@ header a:hover {
     align-items: center;
     justify-content: center;
     flex-grow: 1; /* Allow the wrapper to grow and take the remaining space */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent content from wrapping */
 }
 
 .items {
@@ -100,6 +135,7 @@ header a:hover {
     filter: grayscale(1) brightness(.5);
     transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
     will-change: transform, filter, rotateY, width;
+    display: inline-block; /* Ensure items are displayed inline */
 }
 
 .item::before, .item::after {
@@ -177,9 +213,10 @@ header a:hover {
 
 .footer {
     background-color: #3c3c3c;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .footer p {
@@ -187,4 +224,15 @@ header a:hover {
     font-weight: bold;
     font-size: 12px;
     margin: 0;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    header nav.desktop-menu {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
 }

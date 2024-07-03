@@ -11,12 +11,23 @@
     <!-- header -->
     <header>
         <img src="images/logo.png" alt="Logo" class="logo">
-        <nav>
-            <a href="">Home</a>
-            <a href="">Contact</a>
-            <a href="">About Us</a>
+        <nav class="desktop-menu">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">About Us</a>
+        </nav>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="mobile-menu">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">About Us</a>
         </nav>
     </header>
+
     <div class="wrapper">
         <div class="items">
             <div class="item" tabindex="0" style="background-image: url(images/mod1.jpg)"></div>
@@ -35,8 +46,15 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <div class="footer">
         <p>CONNECT WITH ME</p>
-    </footer>
+    </div>
+
+    <script>
+        // JavaScript for toggling the mobile menu
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
